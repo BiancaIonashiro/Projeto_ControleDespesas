@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Projeto_ControleDespesas.Model.Entity;
+using Projeto_ControleDespesas.Repository;
 using Projeto_ControleDespesas.Repository.Interface;
 
 namespace Projeto_ControleDespesas.Controllers;
@@ -37,19 +39,20 @@ public class DespesaController : ControllerBase
         return CreatedAtAction(nameof(BuscarPorId), new { id = controleDespesa.Id }, controleDespesa);
     }
 
-    /*
+    
     [HttpPut]
-    public async Task<ActionResult> Atualizar()
+    public async Task<ActionResult> Atualizar(ControleDespesa controleDespesa)
     {
-        //var lista = await _controleDespesaRepository.Atualizar();
+        var lista = await _controleDespesaRepository.Atualizar(controleDespesa);
         return Ok();
     }
+    
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult<ControleDespesa>> Apagar(int id)
+    {
+        var resultado = await _controleDespesaRepository.Apagar(id);
 
-    [HttpDelete]
-    public async Task<ActionResult> Delete()
-    {
-        //var lista = await _controleDespesaRepository.Delete();
-        return Ok();
+        return Ok(resultado);
     }
-    */
+    
 }
