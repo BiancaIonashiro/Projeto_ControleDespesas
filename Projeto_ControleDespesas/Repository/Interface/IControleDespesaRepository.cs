@@ -11,6 +11,6 @@ public interface IControleDespesaRepository
     Task <List<ControleDespesa>> BuscarPorSubCategoria(SubCategoria subCategoria);
     Task<List<ControleDespesa>> BuscarPorDescricao(string descricao);
     Task<ControleDespesa> Adicionar(ControleDespesa controleDespesa);
-    Task<ControleDespesa> Atualizar(ControleDespesa controleDespesa);
+    Task<ControleDespesa> Atualizar(int id);
     Task<bool> Apagar(int id);
 }

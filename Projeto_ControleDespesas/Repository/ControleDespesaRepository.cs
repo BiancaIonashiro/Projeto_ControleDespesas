@@ -28,7 +28,7 @@ public class ControleDespesaRepository : IControleDespesaRepository
         throw new NotImplementedException();
     }
 
-    public Task<ControleDespesa> Atualizar(ControleDespesa controleDespesa)
+    public Task<ControleDespesa> Atualizar(int id)
     {
         throw new NotImplementedException();
     }

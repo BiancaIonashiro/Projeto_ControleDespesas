@@ -40,11 +40,11 @@ public class DespesaController : ControllerBase
     }
 
     
-    [HttpPut]
-    public async Task<ActionResult> Atualizar(ControleDespesa controleDespesa)
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<ControleDespesa>> Atualizar(int id)
     {
-        var lista = await _controleDespesaRepository.Atualizar(controleDespesa);
-        return Ok();
+        var resultado = await _controleDespesaRepository.Atualizar(id);
+        return Ok(resultado);
     }
     
     [HttpDelete("{id:int}")]
